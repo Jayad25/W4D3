@@ -3,7 +3,7 @@
 <html>
   <head> <% if current_user %>
     <%= current_user.username %>
-    <input type="button" name="" value="logout ">
+    <input type="button" name="" value="<%= logout %>">
     <% else %>
     <input type="button" name="" value="login">
     <% end %>

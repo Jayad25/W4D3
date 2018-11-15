@@ -1,9 +1,13 @@
 class User < ApplicationRecord
-  validates :username,presence: true,uniqueness: true
+  validates :username, presence: true,uniqueness: true
   validates :session_token, presence: true
   
   attr_reader :password
   before_validation :create_session
+  
+  has_many :cats,
+    foreign_key: :user_id,
+    class_name: :Cat
   
   def reset_session_token
   self.session_token ||= SecureRandom::urlsafe_base64
